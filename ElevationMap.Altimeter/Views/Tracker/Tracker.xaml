@@ -3,11 +3,23 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d"
       d:DesignHeight="480" d:DesignWidth="480">
+    <Grid.Resources>
+        <system:String x:Key="LatitudeFormat">Latitude: {0:X6}°</system:String>
+        <system:String x:Key="LongitudeFormat">Longitude: {0:X6}°</system:String>
+        <system:String x:Key="AltitudeFormat">Altitude: {0:X2}m</system:String>
+        <system:String x:Key="HorizontalAccuracyFormat">Horizontal: {0:X2}m</system:String>
+        <system:String x:Key="VerticalAccuracyFormat">Vertical: {0:X2}m</system:String>
+        <system:String x:Key="TimestampFormat">Timestamp: {0}</system:String>
+        <system:String x:Key="TrackerStateFormat">Tracker state: {0}</system:String>
+    </Grid.Resources>
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
@@ -16,4 +28,35 @@
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
+    
+    <TextBlock Text="{Binding Latitude, Converter={StaticResource FormatConverter},
+                                        ConverterParameter={StaticResource LatitudeFormat}}"/>
+    <TextBlock Grid.Row="0" Grid.Column="1"
+        Text="{Binding Longitude, Converter={StaticResource FormatConverter},
+                                  ConverterParameter={StaticResource LongitudeFormat}}"/>
+    
+    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+               Text="{Binding Altitude, Converter={StaticResource FormatConverter}, 
+                                        ConverterParameter={StaticResource AltitudeFormat}}"/>
+    
+   <TextBlock Grid.Row="2" Grid.Column="0">Accuracy</TextBlock>
+   <TextBlock Grid.Row="2" Grid.Column="1" Foreground="Orange" HorizontalAlignment="Right" 
+              Visibility="{Binding Accuracy.IsPoor, Converter={StaticResource BoolToVisibilityConverter}}">
+       (!)
+   </TextBlock>
+   <TextBlock Grid.Row="3" Grid.Column="0" 
+              Text="{Binding Accuracy.Horizontal, Converter={StaticResource FormatConverter}, 
+                                                  ConverterParameter={StaticResource HorizontalAccuracyFormat}}"/>
+
+    <TextBlock Grid.Row="3" Grid.Column="1" 
+               Text="{Binding Accuracy.Vertical, Converter={StaticResource FormatConverter}, 
+                                                   ConverterParameter={StaticResource VerticalAccuracyFormat}}"/>
+    
+    <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+               Text="{Binding Timestamp, Converter={StaticResource FormatConverter}, 
+                                         ConverterParameter={StaticResource TimestampFormat}}"/>
+    
+    <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+               Text="{Binding TrackerState, Converter={StaticResource FormatConverter}, 
+                                            ConverterParameter={StaticResource TrackerStateFormat}}"/>
 </Grid>
