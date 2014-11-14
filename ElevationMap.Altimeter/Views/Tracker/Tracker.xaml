@@ -22,6 +22,7 @@
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     
     <Grid.ColumnDefinitions>
@@ -59,4 +60,16 @@
     <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                Text="{Binding TrackerState, Converter={StaticResource FormatConverter}, 
                                             ConverterParameter={StaticResource TrackerStateFormat}}"/>
+    
+    <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" 
+            Command="{Binding Start}" 
+            Visibility="{Binding IsRunnging, Converter={StaticResource InverseBoolToVisibilityConverter}}">
+        Start
+    </Button>
+    
+    <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+            Command="{Binding Stop}"
+            Visibility="{Binding IsRunning, Converter={StaticResource BoolToVisibilityConverter}}">
+        Stop
+    </Button>
 </Grid>
