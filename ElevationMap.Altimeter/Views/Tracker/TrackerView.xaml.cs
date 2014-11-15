@@ -2,9 +2,9 @@
 
 namespace NV.ElevationMap.Altimeter.Views.Tracker
 {
-    public partial class Tracker : Grid
+    public partial class TrackerView : Grid
     {
-        public Tracker()
+        public TrackerView()
         {
             InitializeComponent();
         }

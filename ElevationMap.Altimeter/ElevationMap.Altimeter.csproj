@@ -54,6 +54,10 @@
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\packages\Prism.WindowsPhone7.4.1.0\lib\sl4-windowsphone71\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Device" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -67,12 +71,22 @@
     </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\FormatConverter.cs" />
+    <Compile Include="Models\Data\Accuracy.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\Measurement.cs" />
+    <Compile Include="Models\Tracker\PositionChangedEventHandlerArgs.cs" />
+    <Compile Include="Models\Tracker\PositionChangedEventHandler.cs" />
+    <Compile Include="Models\Tracker\StageCHangedEventHandler.cs" />
+    <Compile Include="Models\Tracker\StageChangedEventHandlerArgs.cs" />
+    <Compile Include="Models\Tracker\Tracker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Tracker\Tracker.xaml.cs">
-      <DependentUpon>Tracker.xaml</DependentUpon>
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Tracker\AccuracyViewModel.cs" />
+    <Compile Include="ViewModels\Tracker\TrackerViewModel.cs" />
+    <Compile Include="Views\Tracker\TrackerView.xaml.cs">
+      <DependentUpon>TrackerView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -84,12 +98,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Tracker\Tracker.xaml">
+    <Page Include="Views\Tracker\TrackerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
@@ -102,7 +117,9 @@
     </Content>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Setings\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
