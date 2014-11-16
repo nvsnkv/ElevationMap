@@ -26,9 +26,9 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             if (tracker == null) throw new ArgumentNullException("tracker");
 
             _tracker = tracker;
-            
+            _trackerState = "Unknown";
+
             _latitude = _longitude = _altitude = double.NaN;
-            _trackerState = null;
             _timestamp = new DateTime(0);
 
             Accuracy = new AccuracyViewModel(desiredAccuracy);
@@ -136,9 +136,10 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
         private void PerformStop()
         {
             _tracker.Stop();
-
+            
             _tracker.PositionChanged -= TrackerPositionChanged;
             _tracker.StateChanged -= TrackerStateChanged;
+            TrackerState = "Unknown";
 
             IsRunning = false;
         }
