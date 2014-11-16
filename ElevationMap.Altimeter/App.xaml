@@ -3,12 +3,16 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:converters="clr-namespace:NV.ElevationMap.Altimeter.Converters">
+    xmlns:converters="clr-namespace:NV.ElevationMap.Altimeter.Converters"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <!--Application Resources-->
     <Application.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         <converters:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" />
+
+        <system:String x:Key="HorizontalAccuracyFormat">Horizontal: {0:F2} m</system:String>
+        <system:String x:Key="VerticalAccuracyFormat">Vertical: {0:F2} m</system:String>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

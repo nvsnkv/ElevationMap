@@ -85,8 +85,13 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Settings\DesiredAccuracyViewModel.cs" />
+    <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="ViewModels\Tracker\AccuracyViewModel.cs" />
     <Compile Include="ViewModels\Tracker\TrackerViewModel.cs" />
+    <Compile Include="Views\Setings\DesiredAccuracyView.xaml.cs">
+      <DependentUpon>DesiredAccuracyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Setings\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -102,6 +107,10 @@
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Setings\DesiredAccuracyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Setings\SettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>

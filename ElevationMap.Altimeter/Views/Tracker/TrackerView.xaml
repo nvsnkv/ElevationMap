@@ -11,8 +11,6 @@
         <system:String x:Key="LatitudeFormat">Latitude: {0:F6}°</system:String>
         <system:String x:Key="LongitudeFormat">Longitude: {0:F6}°</system:String>
         <system:String x:Key="AltitudeFormat">{0:F2} m</system:String>
-        <system:String x:Key="HorizontalAccuracyFormat">Horizontal: {0:F2} m</system:String>
-        <system:String x:Key="VerticalAccuracyFormat">Vertical: {0:F2} m</system:String>
         <system:String x:Key="TimestampFormat">Timestamp: {0}</system:String>
         <system:String x:Key="TrackerStateFormat">Tracker state: {0}</system:String>        
     </Grid.Resources>

@@ -8,17 +8,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:tracker="clr-namespace:NV.ElevationMap.Altimeter.Views.Tracker"
+    xmlns:setings="clr-namespace:NV.ElevationMap.Altimeter.Views.Setings"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
     <controls:Pivot Title="ALTIMETER">
         <controls:PivotItem Header="Right Now">
             <tracker:TrackerView DataContext="{Binding Tracker}"/>
         </controls:PivotItem>
+    
+        <controls:PivotItem Header="Settings">
+            <setings:SettingsView DataContext="{Binding Settings}" />
+        </controls:PivotItem>
     </controls:Pivot>
- 
 </phone:PhoneApplicationPage>

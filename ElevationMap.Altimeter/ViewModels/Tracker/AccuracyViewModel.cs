@@ -59,7 +59,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
         public void Update(Accuracy current)
         {
             IsPoor = _desiredAccuracy.Horizontal <= current.Horizontal 
-                     && _desiredAccuracy.Vertical <= current.Vertical;
+                     || _desiredAccuracy.Vertical <= current.Vertical;
 
             Horizontal = current.Horizontal;
             Vertical = current.Vertical;
