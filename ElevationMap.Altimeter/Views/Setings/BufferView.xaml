@@ -1,0 +1,15 @@
+﻿<StackPanel x:Class="NV.ElevationMap.Altimeter.Views.Setings.BufferView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d"
+      d:DesignHeight="480" d:DesignWidth="480">
+    <StackPanel.Resources>
+        <system:String x:Key="ItemsCountFormat" >Items buffered: {0}</system:String>
+        <system:String x:Key="SpaceAvailableFormat">Space Available: {0} Mb</system:String>
+    </StackPanel.Resources>
+    <TextBlock Text="{Binding Count, StringFormat={StaticResource ItemsCountFormat}}"/>
+    <TextBlock Text="{Binding SpaceAvailable, StringFormat={StaticResource SpaceAvailableFormat}}"/>
+</StackPanel>

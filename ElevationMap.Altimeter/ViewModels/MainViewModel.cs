@@ -14,7 +14,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels
 
         public MainViewModel()
         {
-            Settings = new SettingsViewModel(Kernel.Kernel.AccuracySettings);
+            Settings = new SettingsViewModel(Kernel.Kernel.AccuracySettings, Kernel.Kernel.Buffer, Kernel.Kernel.GetFreeSpace);
             Tracker = new TrackerViewModel(Kernel.Kernel.Tracker, Kernel.Kernel.AccuracySettings);
         }
     }

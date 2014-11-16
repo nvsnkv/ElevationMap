@@ -11,5 +11,6 @@
           <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
     <setings:DesiredAccuracyView DataContext="{Binding DesiredAccuracy}"/>
+    <setings:BufferView Grid.Row="1" DataContext="{Binding Buffer}"/>
 </Grid>
     

@@ -1,17 +1,21 @@
-﻿using System.Collections.Generic;
-using System.IO.IsolatedStorage;
+﻿using System.IO.IsolatedStorage;
 using NV.ElevationMap.Altimeter.Models.Buffer;
-using NV.ElevationMap.Altimeter.Models.Data;
 using NV.ElevationMap.Altimeter.Models.Settings;
 using NV.ElevationMap.Altimeter.Models.Tracker;
+using Wintellect.Sterling;
+using Wintellect.Sterling.IsolatedStorage;
 
 namespace NV.ElevationMap.Altimeter.Kernel
 {
     public static class Kernel
     {
+        private static SterlingEngine _engine;
+        private static ISterlingDatabaseInstance _database;
+        private static IsolatedStorageFile _userStore;
+
         public static Tracker Tracker { get; private set; }
 
-        public static ICollection<Measurement> Buffer { get; private set; }
+        public static IBuffer Buffer { get; private set; }
 
         public static AccuracySettings AccuracySettings { get; private set; }
 
@@ -19,7 +23,13 @@ namespace NV.ElevationMap.Altimeter.Kernel
         {
             AccuracySettings = new AccuracySettings(IsolatedStorageSettings.ApplicationSettings);
             Tracker = new Tracker();
-            Buffer = new MeasurementBuffer();
+
+            _engine = new SterlingEngine();
+            _engine.Activate();
+            _database = _engine.SterlingDatabase.RegisterDatabase<BufferDatabase>(new IsolatedStorageDriver());
+            
+            Buffer = new Buffer(_database);
+            _userStore = IsolatedStorageFile.GetUserStoreForApplication();
 
             Tracker.PositionChanged += TrackerPositionChanged;
         }
@@ -28,6 +38,18 @@ namespace NV.ElevationMap.Altimeter.Kernel
         {
             Tracker.PositionChanged -= TrackerPositionChanged;
             Tracker.Dispose();
+            
+            _database.Flush();
+            _engine.Dispose();
+            _database = null;
+            _engine = null;
+
+            _userStore.Dispose();
+        }
+
+        public static void OnDeactivate()
+        {
+            _database.Flush();
         }
 
         private static void TrackerPositionChanged(object sender, PositionChangedEventHandlerArgs e)
@@ -36,5 +58,9 @@ namespace NV.ElevationMap.Altimeter.Kernel
         }
 
 
+        public static double GetFreeSpace()
+        {
+            return _userStore.AvailableFreeSpace;
+        }
     }
 }
