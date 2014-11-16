@@ -52,7 +52,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Settings
         private void BufferOnItemBuffered(object sender, EventArgs eventArgs)
         {
             Count = _buffer.Count;
-            SpaceAvailable = _getFreeSpaceFunc();
+            SpaceAvailable = _getFreeSpaceFunc() / 1024*1024;
         }
     }
 }
