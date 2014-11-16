@@ -1,6 +1,7 @@
 ﻿using System;
 using ElevationMap.Altimeter.Data;
 using Microsoft.Practices.Prism.ViewModel;
+using NV.ElevationMap.Altimeter.Annotations;
 
 namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
 {
@@ -20,6 +21,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             _desiredAccuracy = desiredAccuracy;
         }
 
+        [UsedImplicitly]
         public double Horizontal
         {
             get { return _horizontal; }
@@ -31,6 +33,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             }
         }
 
+        [UsedImplicitly]
         public double Vertical
         {
             get { return _vertical; }

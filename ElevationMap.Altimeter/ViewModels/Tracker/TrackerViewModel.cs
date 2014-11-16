@@ -3,6 +3,7 @@ using System.Windows.Input;
 using ElevationMap.Altimeter.Data;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.ViewModel;
+using NV.ElevationMap.Altimeter.Annotations;
 using NV.ElevationMap.Altimeter.Models.Tracker;
 
 namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
@@ -36,6 +37,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             _stop = new DelegateCommand(PerformStop);
         }
 
+        [UsedImplicitly]
         public double Latitude
         {
             get { return _latitude; }
@@ -47,6 +49,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             }
         }
 
+        [UsedImplicitly]
         public double Longitude
         {
             get { return _longitude; }
@@ -58,6 +61,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             }
         }
 
+        [UsedImplicitly]
         public double Altitude
         {
             get { return _altitude; }
@@ -69,6 +73,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             }
         }
 
+        [UsedImplicitly]
         public DateTime Timestamp
         {
             get { return _timestamp; }
@@ -80,6 +85,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             }
         }
 
+        [UsedImplicitly]
         public object TrackerState
         {
             get { return _trackerState; }
@@ -91,8 +97,10 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             }
         }
 
+        [UsedImplicitly]
         public AccuracyViewModel Accuracy { get; private set; }
 
+        [UsedImplicitly]
         public bool IsRunning
         {
             get { return _isRunning; }
@@ -104,11 +112,13 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
             }
         }
 
+        [UsedImplicitly]
         public ICommand Start
         {
             get { return _start; }
         }
 
+        [UsedImplicitly]
         public ICommand Stop
         {
             get { return _stop; }

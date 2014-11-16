@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:system="clr-namespace:System;assembly=mscorlib"
+      xmlns:tracker="clr-namespace:NV.ElevationMap.Altimeter.ViewModels.Tracker"
       mc:Ignorable="d"
       d:DesignHeight="480" d:DesignWidth="480">
     <Grid.Resources>
@@ -13,7 +14,7 @@
         <system:String x:Key="HorizontalAccuracyFormat">Horizontal: {0:F2} m</system:String>
         <system:String x:Key="VerticalAccuracyFormat">Vertical: {0:F2} m</system:String>
         <system:String x:Key="TimestampFormat">Timestamp: {0}</system:String>
-        <system:String x:Key="TrackerStateFormat">Tracker state: {0}</system:String>
+        <system:String x:Key="TrackerStateFormat">Tracker state: {0}</system:String>        
     </Grid.Resources>
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
@@ -30,17 +31,15 @@
         <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
     
-    <TextBlock Grid.Row="0"  Grid.Column="0" Text="{Binding Latitude, Converter={StaticResource FormatConverter},
-                                        ConverterParameter={StaticResource LatitudeFormat}}"/>
+    <TextBlock Grid.Row="0"  Grid.Column="0" 
+               Text="{Binding Latitude, StringFormat={StaticResource LatitudeFormat}, FallbackValue=0 }"/>
     <TextBlock Grid.Row="0" Grid.Column="1"
-        Text="{Binding Longitude, Converter={StaticResource FormatConverter},
-                                  ConverterParameter={StaticResource LongitudeFormat}}"/>
+        Text="{Binding Longitude, StringFormat={StaticResource LongitudeFormat}}"/>
     
     <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                FontSize="60"
-               Text="{Binding Altitude, Converter={StaticResource FormatConverter}, 
-                                        ConverterParameter={StaticResource AltitudeFormat}}"/>
+               Text="{Binding Altitude, StringFormat={StaticResource AltitudeFormat}}"/>
     
    <TextBlock Grid.Row="2" Grid.Column="0">Accuracy</TextBlock>
    <TextBlock Grid.Row="2" Grid.Column="1" Foreground="Orange" HorizontalAlignment="Right" 
@@ -48,20 +47,16 @@
        (!)
    </TextBlock>
    <TextBlock Grid.Row="3" Grid.Column="0" 
-              Text="{Binding Accuracy.Horizontal, Converter={StaticResource FormatConverter}, 
-                                                  ConverterParameter={StaticResource HorizontalAccuracyFormat}}"/>
+              Text="{Binding Accuracy.Horizontal, StringFormat={StaticResource HorizontalAccuracyFormat}}"/>
 
     <TextBlock Grid.Row="3" Grid.Column="1" 
-               Text="{Binding Accuracy.Vertical, Converter={StaticResource FormatConverter}, 
-                                                   ConverterParameter={StaticResource VerticalAccuracyFormat}}"/>
+               Text="{Binding Accuracy.Vertical, StringFormat={StaticResource VerticalAccuracyFormat}}"/>
     
     <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
-               Text="{Binding Timestamp, Converter={StaticResource FormatConverter}, 
-                                         ConverterParameter={StaticResource TimestampFormat}}"/>
+               Text="{Binding Timestamp, StringFormat={StaticResource TimestampFormat}}"/>
     
     <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
-               Text="{Binding TrackerState, Converter={StaticResource FormatConverter}, 
-                                            ConverterParameter={StaticResource TrackerStateFormat}}"/>
+               Text="{Binding TrackerState, StringFormat={StaticResource TrackerStateFormat}}"/>
     
     <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" 
             Command="{Binding Start}" 

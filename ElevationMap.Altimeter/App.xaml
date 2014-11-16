@@ -9,7 +9,6 @@
     <Application.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         <converters:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" />
-        <converters:FormatConverter x:Key="FormatConverter" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

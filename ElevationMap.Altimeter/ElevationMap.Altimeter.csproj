@@ -72,7 +72,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
-    <Compile Include="Converters\FormatConverter.cs" />
     <Compile Include="Models\Data\Accuracy.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -83,6 +82,7 @@
     <Compile Include="Models\Tracker\StageCHangedEventHandler.cs" />
     <Compile Include="Models\Tracker\StageChangedEventHandlerArgs.cs" />
     <Compile Include="Models\Tracker\Tracker.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Tracker\AccuracyViewModel.cs" />
