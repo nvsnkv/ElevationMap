@@ -1,5 +1,4 @@
 ﻿using System;
-using ElevationMap.Altimeter.Data;
 
 namespace NV.ElevationMap.Altimeter.Models.Data
 {

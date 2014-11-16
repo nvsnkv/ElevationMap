@@ -4,7 +4,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:system="clr-namespace:System;assembly=mscorlib"
-      xmlns:tracker="clr-namespace:NV.ElevationMap.Altimeter.ViewModels.Tracker"
       mc:Ignorable="d"
       d:DesignHeight="480" d:DesignWidth="480">
     <Grid.Resources>

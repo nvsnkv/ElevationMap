@@ -66,17 +66,28 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Xml" />
     <Reference Include="mscorlib.extensions" />
+    <Reference Include="Wintellect.Sterling.WindowsPhone">
+      <HintPath>..\packages\SterlingPhone.1.6.2\lib\sl3-wp\Wintellect.Sterling.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="Wintellect.Sterling.WindowsPhone.IsolatedStorage">
+      <HintPath>..\packages\SterlingPhone.1.6.2\lib\sl3-wp\Wintellect.Sterling.WindowsPhone.IsolatedStorage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Kernel\Kernel.cs" />
+    <Compile Include="Models\Buffer\BufferDatabase.cs" />
+    <Compile Include="Models\Buffer\MeasurementBuffer.cs" />
     <Compile Include="Models\Data\Accuracy.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\IAccuracy.cs" />
     <Compile Include="Models\Data\Measurement.cs" />
+    <Compile Include="Models\Settings\AccuracySettings.cs" />
     <Compile Include="Models\Tracker\PositionChangedEventHandlerArgs.cs" />
     <Compile Include="Models\Tracker\PositionChangedEventHandler.cs" />
     <Compile Include="Models\Tracker\StageCHangedEventHandler.cs" />

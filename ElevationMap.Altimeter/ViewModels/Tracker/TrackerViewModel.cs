@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
-using ElevationMap.Altimeter.Data;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.ViewModel;
 using NV.ElevationMap.Altimeter.Annotations;
+using NV.ElevationMap.Altimeter.Models.Data;
 using NV.ElevationMap.Altimeter.Models.Tracker;
 
 namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
@@ -21,7 +21,7 @@ namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
         private DateTime _timestamp;
         private bool _isRunning;
 
-        public TrackerViewModel(Models.Tracker.Tracker tracker, Accuracy desiredAccuracy)
+        public TrackerViewModel(Models.Tracker.Tracker tracker, IAccuracy desiredAccuracy)
         {
             if (tracker == null) throw new ArgumentNullException("tracker");
 

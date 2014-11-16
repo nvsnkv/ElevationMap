@@ -1,9 +1,9 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using NV.ElevationMap.Altimeter.ViewModels.Settings;
+﻿using System.Windows.Controls;
 
 namespace NV.ElevationMap.Altimeter.Views.Setings
 {
+
+// ReSharper disable once RedundantExtendsListEntry
     public partial class SettingsView : Grid
     {
         public SettingsView()

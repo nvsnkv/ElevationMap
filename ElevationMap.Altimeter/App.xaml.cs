@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using NV.ElevationMap.Altimeter.Kernel;
 
 namespace ElevationMap.Altimeter
 {
@@ -33,6 +34,8 @@ namespace ElevationMap.Altimeter
 
             // Standard Silverlight initialization
             InitializeComponent();
+
+            Kernel.Run();
 
             // Phone-specific initialization
             InitializePhoneApplication();

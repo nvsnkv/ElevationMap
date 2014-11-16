@@ -1,0 +1,19 @@
+﻿<StackPanel x:Class="NV.ElevationMap.Altimeter.Views.Setings.DesiredAccuracyView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      d:DesignHeight="480" d:DesignWidth="480">
+    
+    <TextBlock Style="{StaticResource PhoneTextTitle2Style}">Desired Accuracy</TextBlock>
+    <TextBlock Text="{Binding Horizontal, StringFormat={StaticResource HorizontalAccuracyFormat}}"/>
+    <Slider Value="{Binding Horizontal, Mode=TwoWay}" Minimum="0.1" Maximum="50"/>
+    <TextBlock Text="{Binding Vertical, StringFormat={StaticResource VerticalAccuracyFormat}}"/>
+    <Slider Value="{Binding Vertical, Mode=TwoWay}" Minimum="0.1" Maximum="50"/>
+    <HyperlinkButton HorizontalAlignment="Right" Command="{Binding Save}" 
+                        Visibility="{Binding HasChanged, Converter={StaticResource BoolToVisibilityConverter}}">
+        Save changes
+    </HyperlinkButton>
+    
+</StackPanel>

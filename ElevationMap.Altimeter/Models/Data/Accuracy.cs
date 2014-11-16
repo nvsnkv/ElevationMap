@@ -1,6 +1,6 @@
-﻿namespace ElevationMap.Altimeter.Data
+﻿namespace NV.ElevationMap.Altimeter.Models.Data
 {
-    public class Accuracy
+    public class Accuracy : IAccuracy
     {
         public double Horizontal { get; set; }
         public double Vertical { get; set; }

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace NV.ElevationMap.Altimeter.Views.Setings
 {
+
+// ReSharper disable once RedundantExtendsListEntry
     public partial class DesiredAccuracyView : StackPanel
     {
         public DesiredAccuracyView()

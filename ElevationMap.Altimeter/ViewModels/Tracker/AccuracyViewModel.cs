@@ -1,18 +1,18 @@
 ﻿using System;
-using ElevationMap.Altimeter.Data;
 using Microsoft.Practices.Prism.ViewModel;
 using NV.ElevationMap.Altimeter.Annotations;
+using NV.ElevationMap.Altimeter.Models.Data;
 
 namespace NV.ElevationMap.Altimeter.ViewModels.Tracker
 {
     public class AccuracyViewModel:NotificationObject
     {
-        private readonly Accuracy _desiredAccuracy;
+        private readonly IAccuracy _desiredAccuracy;
         private double _horizontal;
         private double _vertical;
         private bool _isPoor;
 
-        public AccuracyViewModel(Accuracy desiredAccuracy)
+        public AccuracyViewModel(IAccuracy desiredAccuracy)
         {
             if (desiredAccuracy == null) throw new ArgumentNullException("desiredAccuracy");
             _isPoor = true;
